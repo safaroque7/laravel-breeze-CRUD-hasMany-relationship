@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+i.bi.bi-person-plus-fill,
+i.bi.bi-people-fill {
+    font-size: 22px;
+    padding-right: 11px;
+}
+
+.border-bottom-custom-color-1{
+    border-bottom: 1px solid #ced4da;
+}
+
+h1.total-items a:hover {
+    text-decoration: underline !important;
+}
+
+.client-image-size img {
+    width: 65px;
+    height: 65px;
+}
