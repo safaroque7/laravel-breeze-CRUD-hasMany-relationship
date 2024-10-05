@@ -8,7 +8,7 @@
                         Total Clients
                     </h4>
                     <h1 class="total-items">
-                        <a href="all-clients.html" class="text-decoration-none text-dark"> 305 </a>
+                        <a href="{{ route('all-clients') }}" class="text-decoration-none text-dark"> {{ __($allClients) }} </a>
                     </h1>
                 </div>
             </div>
@@ -19,7 +19,7 @@
                         Active Clients
                     </h4>
                     <h1 class="total-items">
-                        <a href="#" class="text-decoration-none text-dark"> 100 </a>
+                        <a href="#" class="text-decoration-none text-dark"> {{ __($totalActiveCount) }} </a>
                     </h1>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                         Inactive Clients
                     </h4>
                     <h1 class="total-items">
-                        <a href="#" class="text-decoration-none text-dark"> 00 </a>
+                        <a href="#" class="text-decoration-none text-dark"> {{ __($inActiveClients) }} </a>
                     </h1>
                 </div>
             </div>

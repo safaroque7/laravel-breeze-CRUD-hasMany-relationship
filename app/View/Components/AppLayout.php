@@ -2,8 +2,9 @@
 
 namespace App\View\Components;
 
-use Illuminate\View\Component;
+use App\Models\Client;
 use Illuminate\View\View;
+use Illuminate\View\Component;
 
 class AppLayout extends Component
 {
@@ -12,6 +13,19 @@ class AppLayout extends Component
      */
     public function render(): View
     {
-        return view('layouts.app');
+        // for total active clients
+        $totalActiveCount = Client::where('status', 1)->count();
+
+        //for total inactive clients
+        $inActiveClients = Client::where('status', 0)->count();
+
+        // for total clients
+        $allClients = Client::count();
+
+        return view('layouts.app', [
+            'allClients' => $allClients,
+            'totalActiveCount' => $totalActiveCount,
+            'inActiveClients' => $inActiveClients,
+        ]);
     }
 }

@@ -20,6 +20,9 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 
+    <!-- Option 1: Include in HTML -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
     <!-- Scripts -->
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
@@ -38,6 +41,16 @@
                     <a href="{{ '/dashboard' }}" class="text-white text-decoration-none">
                         Dashboard
                     </a>
+
+                    <span class="plus-icon-to-add-new-client">
+                        <a href="{{ route('add-new-client') }}" class="text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
+                            </svg>
+                        </a>
+                    </span>
                 </h2>
 
                 <div class="time-and-date-par">
@@ -79,11 +92,11 @@
         <div class="row d-flex justify-content-between">
             <div class="col-md-2 bg-dark vh-100 px-0">
                 <ul class="nav flex-column">
-                    <li class="nav-item border-bottom">
-                        <a class="nav-link text-white" href="{{ route('all-clients') }}">
-                            <i class="bi bi-people-fill"></i>
-                            <i class="bi bi-person-fill-add"></i>
-                            All Cleints</a>
+                    <li class="nav-item border-bottom d-flex justify-content-between align-items-center">
+                        <a class="nav-link text-white" href="{{ route('all-clients') }}"> <i class="bi bi-people-fill"></i>
+                            <i class="bi bi-person-fill-add"></i> All Cleints </a>
+
+                            <span class="total-clients text-white border border-white rounded-circle py-1 px-2 me-md-3">  </span>
                     </li>
 
                     <li class="nav-item">

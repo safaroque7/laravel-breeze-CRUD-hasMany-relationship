@@ -4,6 +4,10 @@
 
     <div class="col-md-10 mt-5">
 
+        @if (session('success'))
+            <h1 class="text-success mb-md-2 mb-1"> {{ __(session('success')) }} </h1>
+        @endif
+
 
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -35,9 +39,9 @@
                     <tr>
                         <td>{{ __($allClient->id) }}</td>
                         <td class="d-flex justify-content-between client-image-size">
-                                <img src="/images/{{ $allClient->client_photo }}" alt="{{ $allClient->client_photo }}"
+                                <img src="/images/{{ $allClient->client_photo }}" alt="{{ __($allClient->client_photo) }}"
                                     class="img-fluid rounded-circle"
-                                    onerror="this.onerror=null;this.src='https://picsum.photos/id/5/50/50';">
+                                    onerror="this.onerror=null;this.src='https://picsum.photos/id/{{ __($allClient->id) }}/50/50';">
                         </td>
                         <td>{{ __($allClient->phone) }}</td>
                         <td> {{ __($allClient->email) }} </td>
@@ -48,7 +52,7 @@
                         <td>{{ __($allClient->facebook_review == 1) ? "Yes" : "No"}}</td>
                         <td>{{ __($allClient->google_review == 1) ? "Yes" : "No"}}</td>
                         <td> {{ __($allClient->services) }} </td>
-                        <td> <a href="#" class="text-dark"> {{ __($allClient->page_number)}} </a> </td>
+                        <td> <a href="{{ route('single-client-info', $allClient->id ) }}" class="text-dark"> {{ __($allClient->page_number)}} </a> </td>
                         <td>
                             <div class="dropdown">
                                 <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
@@ -57,10 +61,10 @@
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li>
-                                        <a class="dropdown-item" href="single-profile.html">View</a>
+                                        <a class="dropdown-item" href="{{ route('single-client-info', $allClient->id) }}">View</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="#">Edit</a></li>
-                                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('edit-single-client-info', $allClient->id) }}">Edit</a></li>
+                                    <li><a onclick="return confirm('Are you sure you want to delete this item?')" class="dropdown-item" href="{{ route('delete-single-client-info', $allClient->id) }}">Delete</a></li>
                                 </ul>
                             </div>
                         </td>

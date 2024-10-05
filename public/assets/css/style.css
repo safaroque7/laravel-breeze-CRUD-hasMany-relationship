@@ -22,3 +22,12 @@ h1.total-items a:hover {
     width: 65px;
     height: 65px;
 }
+
+span.plus-icon-to-add-new-client a:hover {
+    transform: scale(1.5) !important;
+    display: inline-block;
+}
+
+.transition{
+    transition: all .5s;
+}
