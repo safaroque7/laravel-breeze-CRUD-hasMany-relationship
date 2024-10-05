@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('page_number')->nullable();
             $table->string('client_photo')->nullable();
             $table->string('services')->nullable();
-            $table->string('status')->nullable();
+            $table->string('status')->nullable()->default(1);
             $table->string('facebook_profile_link')->nullable();
             $table->string('date_of_birth')->nullable();
 

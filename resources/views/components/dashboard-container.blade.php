@@ -96,7 +96,7 @@
                         <a class="nav-link text-white" href="{{ route('all-clients') }}"> <i class="bi bi-people-fill"></i>
                             <i class="bi bi-person-fill-add"></i> All Cleints </a>
 
-                            <span class="total-clients text-white border border-white rounded-circle py-1 px-2 me-md-3">  </span>
+                            <span class="total-clients text-white border border-white rounded-circle py-1 px-2 me-md-3"> {{ __($totalClient) }}  </span>
                     </li>
 
                     <li class="nav-item">
