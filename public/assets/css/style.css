@@ -29,5 +29,14 @@ span.plus-icon-to-add-new-client a:hover {
 }
 
 .transition{
-    transition: all .5s;
+    transition: all .5s ease-in-out;
+}
+
+.align-items-center h1 a:hover .bi {
+    transform: scale(1.5) !important;
+}
+
+.hover-item-arrow:hover {
+    transform: scale(1.5) !important;
+    display: block;
 }

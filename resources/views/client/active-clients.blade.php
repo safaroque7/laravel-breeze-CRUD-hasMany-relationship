@@ -1,7 +1,5 @@
 <x-dashboard-container>
 
-
-
     <div class="col-md-10 mt-5">
 
         @if (session('success'))
@@ -12,7 +10,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('all-clients') }}">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">All Clients</li>
+                <li class="breadcrumb-item active" aria-current="page">All Active Clients</li>
             </ol>
         </nav>
 
@@ -36,25 +34,25 @@
             </thead>
             <tbody>
 
-                @foreach ($allClients as $allClient)
+                @foreach ($activeClientsCollection as $activeClientsItem)
                     <tr>
-                        <td>{{ __($allClient->id) }}</td>
+                        <td>{{ __($activeClientsItem->id) }}</td>
                         <td class="d-flex justify-content-between client-image-size">
-                                <img src="/images/{{ $allClient->client_photo }}" alt="{{ __($allClient->client_photo) }}"
+                                <img src="/images/{{ $activeClientsItem->client_photo }}" alt="{{ __($activeClientsItem->client_photo) }}"
                                     class="img-fluid rounded-circle"
-                                    onerror="this.onerror=null;this.src='https://picsum.photos/id/{{ __($allClient->id) }}/50/50';">
+                                    onerror="this.onerror=null;this.src='https://picsum.photos/id/{{ __($activeClientsItem->id) }}/50/50';">
                         </td>
-                        <td>{{ __($allClient->name) }}</td>
-                        <td>{{ __($allClient->phone) }}</td>
-                        <td> {{ __($allClient->email) }} </td>
-                        <td>{{ __($allClient->gender == 1) ? "Male" : "Female" }}</td>
+                        <td>{{ __($activeClientsItem->name) }}</td>
+                        <td>{{ __($activeClientsItem->phone) }}</td>
+                        <td> {{ __($activeClientsItem->email) }} </td>
+                        <td>{{ __($activeClientsItem->gender == 1) ? "Male" : "Female" }}</td>
                         <td>
-                            {{ __($allClient->address)}}
+                            {{ __($activeClientsItem->address)}}
                         </td>
-                        <td>{{ __($allClient->facebook_review == 1) ? "Yes" : "No"}}</td>
-                        <td>{{ __($allClient->google_review == 1) ? "Yes" : "No"}}</td>
-                        <td> {{ __($allClient->services) }} </td>
-                        <td> <a href="{{ route('single-client-info', $allClient->id ) }}" class="text-dark"> {{ __($allClient->page_number)}} </a> </td>
+                        <td>{{ __($activeClientsItem->facebook_review == 1) ? "Yes" : "No"}}</td>
+                        <td>{{ __($activeClientsItem->google_review == 1) ? "Yes" : "No"}}</td>
+                        <td> {{ __($activeClientsItem->services) }} </td>
+                        <td> <a href="{{ route('single-client-info', $activeClientsItem->id ) }}" class="text-dark"> {{ __($activeClientsItem->page_number)}} </a> </td>
                         <td>
                             <div class="dropdown">
                                 <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
@@ -63,10 +61,10 @@
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li>
-                                        <a class="dropdown-item" href="{{ route('single-client-info', $allClient->id) }}">View</a>
+                                        <a class="dropdown-item" href="{{ route('single-client-info', $activeClientsItem->id) }}">View</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="{{ route('edit-single-client-info', $allClient->id) }}">Edit</a></li>
-                                    <li><a onclick="return confirm('Are you sure you want to delete this item?')" class="dropdown-item" href="{{ route('delete-single-client-info', $allClient->id) }}">Delete</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('edit-single-client-info', $activeClientsItem->id) }}">Edit</a></li>
+                                    <li><a onclick="return confirm('Are you sure you want to delete this item?')" class="dropdown-item" href="{{ route('delete-single-client-info', $activeClientsItem->id) }}">Delete</a></li>
                                 </ul>
                             </div>
                         </td>
@@ -75,6 +73,9 @@
 
 
             </tbody>
+
+
+
 
             <tfoot>
                 <tr>

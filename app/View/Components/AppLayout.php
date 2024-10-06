@@ -13,19 +13,11 @@ class AppLayout extends Component
      */
     public function render(): View
     {
-        // for total active clients
-        $totalActiveCount = Client::where('status', 1)->count();
-
-        //for total inactive clients
-        $inActiveClients = Client::where('status', 0)->count();
-
         // for total clients
         $allClients = Client::count();
 
         return view('layouts.app', [
-            'allClients' => $allClients,
-            'totalActiveCount' => $totalActiveCount,
-            'inActiveClients' => $inActiveClients,
+            'allClients' => $allClients,            
         ]);
     }
 }

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('email')->required();
             $table->string('gender')->required()->default(1);
             $table->string('address')->nullable();
-            $table->string('facebook_review')->nullable();
+            $table->string('facebook_review')->nullable()->default(0);
             $table->string('google_review')->nullable();
             $table->string('page_number')->nullable();
             $table->string('client_photo')->nullable();

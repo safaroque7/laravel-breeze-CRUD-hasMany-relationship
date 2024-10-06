@@ -1,5 +1,5 @@
 <x-dashboard-container>
-    
+
     <div class="col-md-10 mt-5">
         <div class="row">
             <div class="col-md-3 col-6 mb-md-4 mb-2 text-center">
@@ -8,7 +8,8 @@
                         Total Clients
                     </h4>
                     <h1 class="total-items">
-                        <a href="{{ route('all-clients') }}" class="text-decoration-none text-dark"> {{ __($allClients) }} </a>
+                        <a href="{{ route('all-clients') }}" class="text-decoration-none text-dark"> {{ __($allClients) }}
+                        </a>
                     </h1>
                 </div>
             </div>
@@ -19,7 +20,7 @@
                         Active Clients
                     </h4>
                     <h1 class="total-items">
-                        <a href="#" class="text-decoration-none text-dark"> {{ __($totalActiveCount) }} </a>
+                        <a href="{{ route('all-active-clients') }}" class="text-decoration-none text-dark"> {{ __($activeClients) }} </a>
                     </h1>
                 </div>
             </div>
@@ -30,7 +31,7 @@
                         Inactive Clients
                     </h4>
                     <h1 class="total-items">
-                        <a href="#" class="text-decoration-none text-dark"> {{ __($inActiveClients) }} </a>
+                        <a href="{{ route('all-inactive-clients') }}" class="text-decoration-none text-dark"> {{ __($inactiveClients) }} </a>
                     </h1>
                 </div>
             </div>
@@ -47,8 +48,8 @@
             </div>
 
             <div class="col-md-3 col-6 mb-md-4 mb-2 text-center">
-                <div class="bg-light border border-secondary">
-                    <h4 class="text-white bg-secondary py-2 rounded-top">
+                <div class="bg-light border border-secondary rounded-top">
+                    <h4 class="text-white bg-secondary py-2">
                         Linkon Hosting
                     </h4>
                     <h1 class="total-items">
@@ -58,8 +59,8 @@
             </div>
 
             <div class="col-md-3 col-6 mb-md-4 mb-2 text-center">
-                <div class="bg-light border border-secondary">
-                    <h4 class="text-white bg-secondary py-2 rounded-top">
+                <div class="bg-light border border-secondary rounded-top">
+                    <h4 class="text-white bg-secondary py-2">
                         Linkon Hosting BDiX
                     </h4>
                     <h1 class="total-items">
@@ -69,8 +70,8 @@
             </div>
 
             <div class="col-md-3 col-6 mb-md-4 mb-2 text-center">
-                <div class="bg-light border border-secondary">
-                    <h4 class="text-white bg-secondary py-2 rounded-top">
+                <div class="bg-light border border-secondary rounded-top">
+                    <h4 class="text-white bg-secondary py-2">
                         Adil Domains
                     </h4>
                     <h1 class="total-items">
@@ -80,8 +81,8 @@
             </div>
 
             <div class="col-md-3 col-6 mb-md-4 mb-2 text-center">
-                <div class="bg-light border border-secondary">
-                    <h4 class="text-white bg-secondary py-2 rounded-top">
+                <div class="bg-light border border-secondary rounded-top">
+                    <h4 class="text-white bg-secondary py-2">
                         Adil Hostings
                     </h4>
                     <h1 class="total-items">
@@ -115,8 +116,8 @@
             </div>
 
             <div class="col-md-3 col-6 mb-md-4 mb-2 text-center">
-                <div class="bg-light border border-secondary">
-                    <h4 class="text-white bg-secondary py-2 rounded-top">
+                <div class="bg-light border border-secondary rounded-top">
+                    <h4 class="text-white bg-secondary py-2">
                         Total Hosting Size
                     </h4>
                     <h1 class="total-items">

@@ -55,7 +55,10 @@
 
                 <div class="time-and-date-par">
                     <h5 class="mb-0 text-white">
-                        Friday, 30 September 2024 <i class="bi bi-dash"></i> 08:04 PM
+
+                         {{ $currentDay . ", " . $currentDate . " " . $currentMonth . " " . $currentYear }}
+
+                        {{-- Friday, 30 September 2024 <i class="bi bi-dash"></i> 08:04 PM --}}
                     </h5>
                 </div>
 
@@ -92,18 +95,106 @@
         <div class="row d-flex justify-content-between">
             <div class="col-md-2 bg-dark vh-100 px-0">
                 <ul class="nav flex-column">
-                    <li class="nav-item border-bottom d-flex justify-content-between align-items-center">
-                        <a class="nav-link text-white" href="{{ route('all-clients') }}"> <i class="bi bi-people-fill"></i>
-                            <i class="bi bi-person-fill-add"></i> All Cleints </a>
 
-                            <span class="total-clients text-white border border-white rounded-circle py-1 px-2 me-md-3"> {{ __($totalClient) }}  </span>
-                    </li>
-
-                    <li class="nav-item">
+                    {{-- Add New Cleint --}}
+                    <li class="nav-item border-bottom">
                         <a class="nav-link text-white" href="{{ route('add-new-client') }}">
                             <i class="bi bi-person-plus-fill"></i> Add New Cleint
                         </a>
                     </li>
+
+                    <li class="nav-item border-bottom d-flex justify-content-between align-items-center">
+                        <a class="nav-link text-white" href="{{ route('all-clients') }}"> <i
+                                class="bi bi-people-fill"></i>
+                            <i class="bi bi-person-fill-add"></i> All Cleints </a>
+
+                        <span class="total-clients text-white border border-white rounded-circle py-1 px-2 me-md-3">
+                            {{ __($totalClient) }} </span>
+                    </li>
+
+                    <li class="nav-item border-bottom d-flex justify-content-between align-items-center">
+                        <a class="nav-link text-white" href="{{ route('all-active-clients') }}"> <i
+                                class="bi bi-people-fill"></i>
+                            <i class="bi bi-person-fill-add"></i> Actives Cleints </a>
+
+                        <span
+                            class="total-clients text-white bg-success border border-white rounded-circle py-1 px-2 me-md-3">
+                            {{ __($activeClients) }} </span>
+                    </li>
+
+                    {{-- Active clients email --}}
+                    <li class="nav-item border-bottom d-flex justify-content-between align-items-center">
+                        <a class="nav-link text-white" href="{{ route('all-active-clients-email') }}"> <i
+                                class="bi bi-people-fill"></i>
+                            <i class="bi bi-person-fill-add"></i> Actives Cleints Email</a>
+                    </li>
+
+
+                    {{-- Inactive clients --}}
+                    <li class="nav-item border-bottom d-flex justify-content-between align-items-center">
+                        <a class="nav-link text-white" href="{{ route('all-inactive-clients') }}"> <i
+                                class="bi bi-people-fill"></i>
+                            <i class="bi bi-person-fill-add"></i> Inactives Cleints </a>
+
+                        <span
+                            class="total-clients text-white border bg-danger border-white rounded-circle py-1 px-2 me-md-3">
+                            {{ __($inactiveClients) }} </span>
+                    </li>
+
+
+                    {{-- Inactive clients email --}}
+                    <li class="nav-item border-bottom d-flex justify-content-between align-items-center">
+                        <a class="nav-link text-white" href="{{ route('all-inactive-clients-email') }}"> <i
+                                class="bi bi-people-fill"></i>
+                            <i class="bi bi-person-fill-add"></i> Inactives Cleints Email</a>
+                    </li>
+                                        
+
+                    {{-- Inactive clients email --}}
+                    <li class="nav-item border-bottom d-flex justify-content-between align-items-center">
+                        <a class="nav-link text-white" href="{{ route('facebook-review-left') }}"> <i
+                                class="bi bi-people-fill"></i>
+                            <i class="bi bi-person-fill-add"></i> Facebook Review Left Emails </a>
+
+                        <span
+                            class="total-clients text-white border bg-danger border-white rounded-circle py-1 px-2 me-md-3">
+                            {{ __($facebookReviewLeftCount) }} </span>
+                    </li>
+
+
+                    {{-- Inactive clients email --}}
+                    <li class="nav-item border-bottom d-flex justify-content-between align-items-center">
+                        <a class="nav-link text-white" href="{{ route('facebook-review-left-phone') }}"> <i
+                                class="bi bi-people-fill"></i>
+                            <i class="bi bi-person-fill-add"></i> Facebook Review Left Phone </a>
+
+                        <span
+                            class="total-clients text-white border bg-danger border-white rounded-circle py-1 px-2 me-md-3">
+                            {{ __($facebookReviewLeftCount) }} </span>
+                    </li>
+                    
+                    {{-- google-review-left-email --}}
+                    <li class="nav-item border-bottom d-flex justify-content-between align-items-center">
+                        <a class="nav-link text-white" href="{{ route('google-review-left-email') }}"> <i
+                                class="bi bi-people-fill"></i>
+                            <i class="bi bi-person-fill-add"></i> Google Review Left Email </a>
+
+                        <span
+                            class="total-clients text-white border bg-danger border-white rounded-circle py-1 px-2 me-md-3">
+                            {{ __($googleReviewLeftCount) }} </span>
+                    </li>
+
+                    {{-- google-review-left-phone --}}
+                    <li class="nav-item border-bottom d-flex justify-content-between align-items-center">
+                        <a class="nav-link text-white" href="{{ route('google-review-left-phone') }}"> <i
+                                class="bi bi-people-fill"></i>
+                            <i class="bi bi-person-fill-add"></i> Google Review Left Phone </a>
+
+                        <span
+                            class="total-clients text-white border bg-danger border-white rounded-circle py-1 px-2 me-md-3">
+                            {{ __($googleReviewLeftCount) }} </span>
+                    </li>
+
                 </ul>
             </div>
 

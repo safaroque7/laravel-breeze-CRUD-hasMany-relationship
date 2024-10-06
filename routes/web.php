@@ -10,10 +10,8 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    $allClients = Client::count();
-    return view('dashboard', [
-        'allClients' => $allClients,
-    ]);
+    
+    return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -32,4 +30,30 @@ Route::middleware('auth')->group(function () {
     Route::get('/edit-single-client-info/{id}', [ClientController::class, 'editSingleClientInfo'])->name('edit-single-client-info');
     Route::post('/update-single-client-info/{id}', [ClientController::class, 'updateClient'])->name('update-single-client-info');
     Route::get('/delete-single-client-info/{id}', [ClientController::class, 'delete'])->name('delete-single-client-info');
+
+    // get all active clients
+    Route::get('/all-active-clients', [ClientController::class, 'getActiveClients'])->name('all-active-clients');
+
+    // get all inactive clients
+    Route::get('/all-inactive-clients', [ClientController::class, 'getInactiveClients'])->name('all-inactive-clients');
+
+    
+
+    // get all inactive clients email
+    Route::get('/all-inactive-clients-email', [ClientController::class, 'getInactiveClientsEmails'])->name('all-inactive-clients-email');
+
+    // get all active clients email
+    Route::get('/all-active-clients-email', [ClientController::class, 'getActiveClientsEmails'])->name('all-active-clients-email');
+
+    // Facebook Review Left
+    Route::get('/facebook-review-left', [ClientController::class, 'getFacebookReviewLeft'])->name('facebook-review-left');
+    
+    // Facebook Review Left Phone Number
+    Route::get('/facebook-review-left-phone', [ClientController::class, 'getFacebookReviewLeftPhone'])->name('facebook-review-left-phone');
+
+    // Google Review Left email
+    Route::get('/google-review-left-email', [ClientController::class, 'getGoogleReviewLeftEmail'])->name('google-review-left-email');
+
+    // Google Review Left phone
+    Route::get('/google-review-left-phone', [ClientController::class, 'getGoogleReviewLeftPhone'])->name('google-review-left-phone');
 });

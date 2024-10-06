@@ -14,7 +14,7 @@
             </ol>
         </nav>
 
-        <form action="{{ route('update-single-client-info', $editableSingleClientInfo) }}" method="POST"
+        <form action="{{ route('update-single-client-info', $editableSingleClientInfo->id) }}" method="POST"
             enctype="multipart/form-data">
             @csrf
             <div class="row mb-md-3 mb-2">
