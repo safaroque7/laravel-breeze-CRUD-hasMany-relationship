@@ -195,6 +195,16 @@
                             {{ __($googleReviewLeftCount) }} </span>
                     </li>
 
+                    {{-- google-review-left-phone --}}
+                    <li class="nav-item border-bottom d-flex justify-content-between align-items-center">
+                        <a class="nav-link text-white" href="{{ route('add-new-service') }}"> <i
+                                class="bi bi-people-fill"></i>
+                            <i class="bi bi-person-fill-add"></i> Add New Service </a>
+
+                        <span
+                            class="total-clients text-dark border bg-light border-white rounded-circle py-1 px-2 me-md-3"> {{ __($allService) }} </span>
+                    </li>
+
                 </ul>
             </div>
 

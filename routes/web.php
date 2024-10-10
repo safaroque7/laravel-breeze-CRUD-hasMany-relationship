@@ -4,6 +4,7 @@ use App\Models\Client;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -56,4 +57,19 @@ Route::middleware('auth')->group(function () {
 
     // Google Review Left phone
     Route::get('/google-review-left-phone', [ClientController::class, 'getGoogleReviewLeftPhone'])->name('google-review-left-phone');
+
+    // Add New Service
+    Route::get('/add-new-service', [ServiceController::class, 'getAddNewService'])->name('add-new-service');
+
+    //For storing the new service
+    Route::post('/store-new-service', [ServiceController::class, 'getStoreNewService'])->name('store-new-service');
+
+     //For editing the new service
+     Route::get('/edit-service-item/{id}', [ServiceController::class, 'editServiceItem'])->name('edit-service-item');
+
+     //For updating the new service
+     Route::post('/update-service-item/{id}', [ServiceController::class, 'updateServiceItem'])->name('update-service-item');
+
+     //For updating the new service
+     Route::get('/delete-service-item/{id}', [ServiceController::class, 'destory'])->name('delete-service-item');
 });

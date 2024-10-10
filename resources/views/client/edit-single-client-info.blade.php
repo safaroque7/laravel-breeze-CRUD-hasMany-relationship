@@ -17,6 +17,7 @@
         <form action="{{ route('update-single-client-info', $editableSingleClientInfo->id) }}" method="POST"
             enctype="multipart/form-data">
             @csrf
+
             <div class="row mb-md-3 mb-2">
                 <div class="col-md-6">
                     <label for="name" class="form-label"> Name </label>
@@ -28,7 +29,7 @@
                     @endif
 
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <label for="phone" class="form-label"> Phone </label>
                     <input type="text" name="phone" class="form-control"
                         value="{{ __($editableSingleClientInfo->phone) }}" />
@@ -62,7 +63,7 @@
                     <label class="form-check-label" for="female"> Female </label>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <label for="address" class="form-label"> Address </label>
                     <input type="text" name="address" class="form-control"
                         value="{{ __($editableSingleClientInfo->address) }}" />
@@ -70,7 +71,6 @@
             </div>
 
             <div class="row mb-md-4 mb-3">
-
                 <div class="col-md-2">
                     <label for="facebook-review" class="form-label">
                         Facebook Review
@@ -99,7 +99,7 @@
                         value="{{ __($editableSingleClientInfo->page_number) }}" />
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <!-- Facebook Profile Link Start -->
                     <label for="facebookProfileLink" class="form-label border-secondary d-block"> Facebook Profile Link
                     </label>
@@ -107,12 +107,23 @@
                         class="form-control mb-md-3 mb-2"
                         value="{{ __($editableSingleClientInfo->facebook_profile_link) }}">
                 </div>
+
+
+                <div class="col-md-2 d-flex align-items-center justify-content-center">
+
+                    <h1 class="mb-0"> <a href="{{ URL::to('edit-single-client-info/' . $previous) }}"
+                            class="text-dark"> <i class="transition bi bi-chevron-compact-left hover-item-arrow"></i>
+                        </a> </h1>
+
+                    <h1 class="mb-0"> <a href="{{ URL::to('edit-single-client-info/' . $next) }}" class="text-dark">
+                            <i class="transition bi bi-chevron-compact-right hover-item-arrow"></i> </a> </h1>
+
+                </div>
+
             </div>
 
             <div class="row mb-md-4 mb-3">
-
                 <div class="col-md-6">
-
                     <div class="row">
                         <div class="col-md-6">
                             <label for="select-service"
@@ -172,17 +183,18 @@
                             <!-- Date of Birth start -->
                             <label for="DateOfBirth" class="form-label border-secondary d-block"> Date of Birth
                             </label>
-                            <input type="date" name="date_of_birth" id="DateOfBirth" class="form-control" value="{{ __($editableSingleClientInfo->date_of_birth) }}"                                >
+                            <input type="date" name="date_of_birth" id="DateOfBirth" class="form-control"
+                                value="{{ __($editableSingleClientInfo->date_of_birth) }}">
                         </div>
 
                     </div>
                 </div>
 
 
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <label for="uploadPhoto" class="form-label border-secondary d-block"> Upload Photo </label>
                     <input type="file" name="client_photo" id="uploadPhoto" class="form-control mb-md-3" />
-                    <div class="w-50">
+                    <div class="w-75">
                         <img src="/images/{{ __($editableSingleClientInfo->client_photo) }}"
                             alt="{{ __($editableSingleClientInfo->name) }}" class="img-fluid">
                     </div>

@@ -73,11 +73,18 @@ class ClientController extends Controller
     public function singleClientInfo($id)
     {
 
-
-
         $singleClientInformation = Client::findOrFail($id);
+
+        // get previous user id
+        $previous = Client::where('id', '<', $singleClientInformation->id)->max('id');
+
+        // get next user id
+        $next = Client::where('id', '>', $singleClientInformation->id)->min('id');
+
         return view('client.single-client-info', [
             'singleClientInformation' => $singleClientInformation,
+            'previous' => $previous,
+            'next' => $next,
 
         ]);
     }
@@ -86,10 +93,23 @@ class ClientController extends Controller
     public function editSingleClientInfo($id)
     {
         $editableSingleClientInfo = Client::findOrFail($id);
+
+        // get previous user id
+        $previous = Client::where('id', '<', $editableSingleClientInfo->id)->max('id');
+
+        // get next user id
+        $next = Client::where('id', '>', $editableSingleClientInfo->id)->min('id');
+
         return view('client.edit-single-client-info', [
             'editableSingleClientInfo' => $editableSingleClientInfo,
+            'previous' => $previous,
+            'next' => $next,
         ]);
     }
+
+
+
+    
 
 // update data
     public function updateClient(Request $request, $id)

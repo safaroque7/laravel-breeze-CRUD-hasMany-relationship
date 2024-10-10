@@ -10,7 +10,8 @@
 
         <div class="row">
             <div class="col-md-2 d-flex align-items-center justify-content-center">
-                <h1 class="mb-0"> <a href="#" class="text-dark"> <i class="transition bi bi-chevron-compact-left hover-item-arrow"></i> </a> </h1>
+                <h1 class="mb-0"> <a href="{{URL::to('single-client-info/' . $previous)}}" class="text-dark"> <i class="transition bi bi-chevron-compact-left hover-item-arrow"></i> </a> </h1>
+               
             </div>
             <div class="col-md-3">
                 <img src="/images/{{ $singleClientInformation->client_photo }}" alt="" class="img-fluid" onerror="this.onerror=null;this.src='https://picsum.photos/id/{{ __($singleClientInformation->id) }}/370/483';">
@@ -45,8 +46,11 @@
                 </div>
             </div>
             <div class="col-md-2 d-flex align-items-center justify-content-center">
-                <h1 class="mb-0"> <a href="#" class="text-dark"> <i class="transition bi bi-chevron-compact-right hover-item-arrow"></i> </a> </h1>
+                <h1 class="mb-0"> <a href="{{URL::to('single-client-info/' . $next)}}" class="text-dark"> <i class="transition bi bi-chevron-compact-right hover-item-arrow"></i> </a> </h1>
+               
+                
             </div>
+
         </div>
     </div>
 

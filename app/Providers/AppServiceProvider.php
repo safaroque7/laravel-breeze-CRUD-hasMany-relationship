@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Carbon\Carbon;
 use App\Models\Client;
+use App\Models\Service;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -48,6 +49,9 @@ class AppServiceProvider extends ServiceProvider
             $currentDate = Carbon::now()->format('d');
             $currentDay = Carbon::now()->format('l');
 
+            // for total services
+            $allService = Service::count();
+
             $view->with(
                 [
                     'totalClient' => $totalClient,
@@ -59,6 +63,7 @@ class AppServiceProvider extends ServiceProvider
                     'currentMonth' => $currentMonth,
                     'currentDate' => $currentDate,
                     'currentDay' => $currentDay,
+                    'allService' => $allService,
                 ]
             ); // Share it with all views
             
