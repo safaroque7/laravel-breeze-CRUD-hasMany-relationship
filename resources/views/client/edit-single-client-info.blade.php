@@ -128,45 +128,25 @@
                         <div class="col-md-6">
                             <label for="select-service"
                                 class="form-label border-secondary d-block pb-md-2 pb-1 border-bottom-custom-color-1">
-                                Select Services
+                                Edit Select Services
                             </label>
+                            
+                            @foreach ($editableSingleServiceInfo as $editableSingleServiceInfoItem)
 
-                            <!-- checkbox item -->
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" name="services[]" id="checkbox1"
-                                    value="Online News Portal" @if ($editableSingleClientInfo->services == 'Online News Portal') checked @endif />
-                                <label class="form-check-label" for="checkbox1">
-                                    Online News Portal
-                                </label>
-                            </div>
+                                <!-- checkbox item start -->
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" name="services[]" id="{{$editableSingleServiceInfoItem->id}}"
+                                        value="{{ $editableSingleServiceInfoItem->id }}" @if (in_array($editableSingleServiceInfoItem->id, $editableSingleClientInfo->services->pluck('id')->toArray())) checked @endif />
+                                    <label class="form-check-label" for="checkbox{{$editableSingleServiceInfoItem->id}}">
+                                        {{ __($editableSingleServiceInfoItem->name) }}
+                                    </label>
+                                </div>
+                                <!-- checkbox item end -->
 
-                            <!-- checkbox item -->
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" name="services[]" id="checkbox2"
-                                    value="Official website" @if ($editableSingleClientInfo->services == 'Official website') checked @endif />
-                                <label class="form-check-label" for="checkbox2">
-                                    Official website
-                                </label>
-                            </div>
+                            @endforeach
 
-                            <!-- checkbox item -->
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" name="services[]" id="checkbox3"
-                                    value="Scholl/College/University website"
-                                    @if ($editableSingleClientInfo->services == 'Scholl/College/University website') checked @endif />
-                                <label class="form-check-label" for="checkbox3">
-                                    Scholl/College/University website
-                                </label>
-                            </div>
+                            
 
-                            <!-- checkbox item -->
-                            <div class="form-check mb-md-3 mb-2">
-                                <input type="checkbox" class="form-check-input" name="services[]" id="checkbox4"
-                                    value="Personal Website" @if ($editableSingleClientInfo->services == 'Personal Website') checked @endif />
-                                <label class="form-check-label" for="checkbox3">
-                                    Personal Website
-                                </label>
-                            </div>
                         </div>
 
                         <div class="col-md-3">

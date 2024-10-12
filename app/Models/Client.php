@@ -24,4 +24,8 @@ class Client extends Model
         'facebook_profile_link',
         'date_of_birth',
     ];
+
+    public function services(){
+        return $this->belongsToMany(service::class);
+    }
 }

@@ -51,7 +51,7 @@
                         </td>
                         <td>{{ __($inactiveClientsItem->facebook_review == 1) ? "Yes" : "No"}}</td>
                         <td>{{ __($inactiveClientsItem->google_review == 1) ? "Yes" : "No"}}</td>
-                        <td> {{ __($inactiveClientsItem->services) }} </td>
+
                         <td> <a href="{{ route('single-client-info', $inactiveClientsItem->id ) }}" class="text-dark"> {{ __($inactiveClientsItem->page_number)}} </a> </td>
                         <td>
                             <div class="dropdown">

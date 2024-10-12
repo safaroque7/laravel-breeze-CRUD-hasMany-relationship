@@ -53,7 +53,7 @@
                         </td>
                         <td>{{ __($allClient->facebook_review == 1) ? "Yes" : "No"}}</td>
                         <td>{{ __($allClient->google_review == 1) ? "Yes" : "No"}}</td>
-                        <td> {{ __($allClient->services) }} </td>
+
                         <td> <a href="{{ route('single-client-info', $allClient->id ) }}" class="text-dark"> {{ __($allClient->page_number)}} </a> </td>
                         <td>
                             <div class="dropdown">

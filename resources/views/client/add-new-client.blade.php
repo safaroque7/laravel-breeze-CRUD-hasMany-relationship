@@ -110,15 +110,9 @@
               />
             </div>
 
-
-            
-
-
           </div>
 
           <div class="row mb-md-4 mb-3">
-            
-
               <div class="col-md-4">
                 <label
                   for="select-service"
@@ -127,61 +121,17 @@
                   Select Services
                 </label>
 
-                <!-- checkbox item -->
-                <div class="form-check">
-                  <input
-                    type="checkbox"
-                    class="form-check-input"
-                    name="services[]"
-                    id="checkbox1"
-                    value="Online News Portal"
-                  />
-                  <label class="form-check-label" for="checkbox1">
-                    Online News Portal
-                  </label>
-                </div>
+                @foreach ($allServices as $allServiceItem)
 
                 <!-- checkbox item -->
                 <div class="form-check">
-                  <input
-                    type="checkbox"
-                    class="form-check-input"
-                    name="services[]"
-                    id="checkbox2"
-                    value="Official website"
-                  />
-                  <label class="form-check-label" for="checkbox2">
-                    Official website
-                  </label>
+                  <input type="checkbox" class="form-check-input" name="services[]" id="checkbox{{$allServiceItem->id}}" value="{{ $allServiceItem->id }}" />
+                  <label class="form-check-label" for="checkbox{{$allServiceItem->id}}"> {{ $allServiceItem->name }} </label>
                 </div>
 
-                <!-- checkbox item -->
-                <div class="form-check">
-                  <input
-                    type="checkbox"
-                    class="form-check-input"
-                    name="services[]"
-                    id="checkbox3"
-                    value="Scholl/College/University website"
-                  />
-                  <label class="form-check-label" for="checkbox3">
-                    Scholl/College/University website
-                  </label>
-                </div>
+                @endforeach
 
-                <!-- checkbox item -->
-                <div class="form-check mb-md-3 mb-2">
-                  <input
-                    type="checkbox"
-                    class="form-check-input"
-                    name="services[]"
-                    id="checkbox4"
-                    value="Personal Website"
-                  />
-                  <label class="form-check-label" for="checkbox3">
-                    Personal Website
-                  </label>
-                </div>
+                
               </div>
 
               <div class="col-md-2">

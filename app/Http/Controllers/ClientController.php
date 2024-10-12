@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
     public function index()
     {
+        $allServices = Service::all();
         $allClients = Client::all();
-        return view('client/add-new-client', [
+        return view('client.add-new-client', [
             'allClients' => $allClients,
+            'allServices' => $allServices,
         ]);
     }
 
@@ -20,7 +23,7 @@ class ClientController extends Controller
     {
 
         $allClients = Client::all();
-        return view('client/all-clients', [
+        return view('client.all-clients', [
             'allClients' => $allClients,
         ]);
     }
@@ -37,10 +40,15 @@ class ClientController extends Controller
         ]);
 
 // for services
-        $arrayServices = null;
-        if (isset($request->services)) {
-            $arrayServices = implode(', ', $request->services);
-        }
+        // $arrayServices = [];
+        
+        // if (isset($request->services)) {
+
+        //     array_push($arrayServices, $request->services);
+
+        //     // $arrayServices = implode(', ', $request->services);
+
+        // }
 
 // for image
         $imageName = null;
@@ -60,11 +68,13 @@ class ClientController extends Controller
         $arrayClient->google_review = $request->google_review;
         $arrayClient->page_number = $request->page_number;
         $arrayClient->client_photo = $imageName;
-        $arrayClient->services = $arrayServices;
+        // $arrayClient->services = $arrayServices;
         $arrayClient->status = $request->status;
         $arrayClient->facebook_profile_link = $request->facebook_profile_link;
         $arrayClient->date_of_birth = $request->date_of_birth;
         $arrayClient->save();
+
+        $arrayClient->services()->sync($request->services);
 
         return redirect()->back()->with('success', 'The client information has been saved successfully.');
     }
@@ -93,7 +103,8 @@ class ClientController extends Controller
     public function editSingleClientInfo($id)
     {
         $editableSingleClientInfo = Client::findOrFail($id);
-
+        $editableSingleServiceInfo = Service::all();
+        
         // get previous user id
         $previous = Client::where('id', '<', $editableSingleClientInfo->id)->max('id');
 
@@ -102,6 +113,7 @@ class ClientController extends Controller
 
         return view('client.edit-single-client-info', [
             'editableSingleClientInfo' => $editableSingleClientInfo,
+            'editableSingleServiceInfo' => $editableSingleServiceInfo,
             'previous' => $previous,
             'next' => $next,
         ]);
@@ -125,10 +137,10 @@ class ClientController extends Controller
         $updateClient = Client::findOrFail($id);
 
 // for services
-        $arrayServices = null;
-        if (isset($request->services)) {
-            $arrayServices = implode(', ', $request->services);
-        }
+        // $arrayServices = null;
+        // if (isset($request->services)) {
+        //     $arrayServices = implode(', ', $request->services);
+        // }
 
 // for image
         $imageName = null;
@@ -148,11 +160,13 @@ class ClientController extends Controller
         $updateClient->google_review = $request->google_review;
         $updateClient->page_number = $request->page_number;
         $updateClient->client_photo = $imageName;
-        $updateClient->services = $arrayServices;
+        // $updateClient->services = $arrayServices;
         $updateClient->status = $request->status;
         $updateClient->facebook_profile_link = $request->facebook_profile_link;
         $updateClient->date_of_birth = $request->date_of_birth;
         $updateClient->save();
+
+        $updateClient->services()->sync($request->services);
 
         return redirect()->back()->with('success', 'The client\'s information has been updated successfully.');
     }
