@@ -28,7 +28,15 @@
                     <p class="pb-2 border-bottom border-grey"> Address : <span> {{ __($singleClientInformation->address) }} </span> </p>
                     <p class="pb-2 border-bottom border-grey"> Facebook Review : <span> {{ __($singleClientInformation->facebook_review == 1) ? "Yes" : "No" }} </span> </p>
                     <p class="pb-2 border-bottom border-grey"> Google Review : <span> {{ __($singleClientInformation->google_review == 1) ? "Yes" : "No" }} </span> </p>
-                    <p class="pb-2 border-bottom border-grey"> Services : <span> {{ __($singleClientInformation->services) }} </span> </p>
+
+                    @foreach ($singleClientInfoForServices->services as $serviceItem)
+                            <tr>
+                                <td>{{ $serviceItem->name }}</td>
+                            </tr>
+                        @endforeach
+                    
+
+                    
                     <p class="pb-2 border-bottom border-grey"> Page Number : <span> {{ __($singleClientInformation->page_number) }} </span> </p>
 
                     <div class="border-bottom border-grey">

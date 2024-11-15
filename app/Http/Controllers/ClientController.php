@@ -68,7 +68,6 @@ class ClientController extends Controller
         $arrayClient->google_review = $request->google_review;
         $arrayClient->page_number = $request->page_number;
         $arrayClient->client_photo = $imageName;
-        // $arrayClient->services = $arrayServices;
         $arrayClient->status = $request->status;
         $arrayClient->facebook_profile_link = $request->facebook_profile_link;
         $arrayClient->date_of_birth = $request->date_of_birth;
@@ -84,6 +83,7 @@ class ClientController extends Controller
     {
 
         $singleClientInformation = Client::findOrFail($id);
+        $singleClientInfoForServices = Client::with('services')->findOrFail($id);
 
         // get previous user id
         $previous = Client::where('id', '<', $singleClientInformation->id)->max('id');
@@ -95,7 +95,7 @@ class ClientController extends Controller
             'singleClientInformation' => $singleClientInformation,
             'previous' => $previous,
             'next' => $next,
-
+            'singleClientInfoForServices'=>$singleClientInfoForServices
         ]);
     }
 
@@ -160,7 +160,6 @@ class ClientController extends Controller
         $updateClient->google_review = $request->google_review;
         $updateClient->page_number = $request->page_number;
         $updateClient->client_photo = $imageName;
-        // $updateClient->services = $arrayServices;
         $updateClient->status = $request->status;
         $updateClient->facebook_profile_link = $request->facebook_profile_link;
         $updateClient->date_of_birth = $request->date_of_birth;
