@@ -83,7 +83,7 @@ class ClientController extends Controller
     {
 
         $singleClientInformation = Client::findOrFail($id);
-        $singleClientInfoForServices = Client::with('services')->findOrFail($id);
+        $singleClientServices = Client::with('services')->findOrFail($id);
 
         // get previous user id
         $previous = Client::where('id', '<', $singleClientInformation->id)->max('id');
@@ -95,7 +95,7 @@ class ClientController extends Controller
             'singleClientInformation' => $singleClientInformation,
             'previous' => $previous,
             'next' => $next,
-            'singleClientInfoForServices'=>$singleClientInfoForServices
+            'singleClientServices'=>$singleClientServices,
         ]);
     }
 
